@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Speech to Text Conversion</title>
+</head>
+<body>
+    <div class="cont1">
+        <h3 id="head">SPEECH TO TEXT CONVERSION</h3>
+        <br>
+        <div class="cont2">
+            <div class="sub1">
+                <p id="text">Input Audio File</p>
+                <form method="POST" enctype="multipart/form-data">
+                    <label for="audioInput" id="fileLabel">Choose Audio File</label>
+                    <input type="file" id="audioInput" name="audio" accept="audio/*">
+                    <audio controls id="audioPlayer" style="display: none;"></audio>
+                    <button type="submit" id="submit">Submit</button>
+                </form>
+                <br>
+            </div>
+            <div class="sub2">
+                <p id="res">Results</p>
+                <div class="result">
+                    {% if error %}
+                        <p style="color: red;">{{ error }}</p>
+                    {% elif result %}
+                        <p>{{ result }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
